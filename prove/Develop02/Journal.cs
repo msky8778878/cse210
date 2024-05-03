@@ -49,4 +49,20 @@ public class Journal
             _entries.Add(oneEntry);
         }
     }
+
+    //BONUS:
+    /*
+    This bonus function will get a date (from user in the main function), search the list and find and display all entries with the same date
+    I am comparing 2 strings here which I know is not good but at least in the prompt to insert date the user gets the right format in which is he supposed to write it
+    */
+    public void DisplayByDate(string date)
+    {
+        foreach (Entry oneEntry in _entries)
+        {
+            if (String.Equals(oneEntry._date, date))
+            {
+                oneEntry.Display();
+            }
+        }
+    }
 }

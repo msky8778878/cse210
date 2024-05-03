@@ -14,6 +14,7 @@ class Program
             Console.WriteLine("3. Save to a file");
             Console.WriteLine("4. Load from a file");
             Console.WriteLine("5. Exit");
+            Console.WriteLine("6. Search entry by date");
             Console.WriteLine("What do you want to do? ");
             option = int.Parse(Console.ReadLine());
 
@@ -68,6 +69,18 @@ class Program
                     break;
                 case 5:
                     Console.WriteLine("5. Exit");
+                    break;
+                case 6:
+                    Console.WriteLine("6. Search entry by date");
+
+                    DateTime theCurrentTime2 = DateTime.Now;
+                    string theCurrentTime2str = theCurrentTime2.ToShortDateString();
+
+                    Console.Write($"Enter date like this '{theCurrentTime2str}': ");
+                    string inputdate = Console.ReadLine();
+
+                    journal.DisplayByDate(inputdate);
+
                     break;
                 default:
                     Console.WriteLine("Error: invalid option - enter again");
