@@ -71,6 +71,7 @@ class Program
                     Console.WriteLine("5. Exit");
                     break;
                 case 6:
+                    //BONUS
                     Console.WriteLine("6. Search entry by date");
 
                     DateTime theCurrentTime2 = DateTime.Now;
