@@ -5,41 +5,72 @@ class Program
     static void Main(string[] args)
     {
         int option = 0;
-        //todo - deklarace objektu
+        Journal journal = new Journal();
 
         while (option != 5)
         {
-            Console.Write("1. Write an entry");
-            Console.Write("2. Display journal content");
-            Console.Write("3. Save to a file");
-            Console.Write("4. Load from a file");
-            Console.Write("5. Exit");
-            Console.Write("What do you want to do? ");
+            Console.WriteLine("1. Write an entry");
+            Console.WriteLine("2. Display journal content");
+            Console.WriteLine("3. Save to a file");
+            Console.WriteLine("4. Load from a file");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("What do you want to do? ");
             option = int.Parse(Console.ReadLine());
 
             switch (option)
             {
                 case 1:
-                    Console.Write("1. Write an entry");
-                    //todo
+                    Console.WriteLine("1. Write an entry");
+
+                    Entry newEntry = new Entry();
+
+                    PromptGenerator promptGenerator = new PromptGenerator();
+                    newEntry._promptText = promptGenerator.GetRandomPrompt();
+
+                    Console.WriteLine($"{newEntry._promptText}");
+                    newEntry._entryText = Console.ReadLine();
+
+                    DateTime theCurrentTime = DateTime.Now;
+                    newEntry._date = theCurrentTime.ToShortDateString();
+
+                    journal.AddEntry(newEntry);
+
+                    Console.WriteLine("Entry saved");
+
                     break;
                 case 2:
-                    Console.Write("2. Display journal content");
-                    //todo
+                    Console.WriteLine("2. Display journal content");
+
+                    journal.DisplayAll();
+
                     break;
                 case 3:
-                    Console.Write("3. Save to a file");
-                    //todo
+                    Console.WriteLine("3. Save to a file");
+
+                    Console.Write("Enter path/filename: ");
+                    string filenamesave = Console.ReadLine();
+
+                    journal.SaveToFile(filenamesave);
+
+                    Console.WriteLine($"Journal saved to '{filenamesave}'");
+
                     break;
                 case 4:
-                    Console.Write("4. Load from a file");
-                    //todo
+                    Console.WriteLine("4. Load from a file");
+
+                    Console.Write("Enter path/filename: ");
+                    string filenameread = Console.ReadLine();
+
+                    journal.LoadFromFile(filenameread);
+
+                    Console.WriteLine($"Journal loaded from '{filenameread}'");
+
                     break;
                 case 5:
-                    Console.Write("5. Exit");
+                    Console.WriteLine("5. Exit");
                     break;
                 default:
-                    Console.Write("Error: invalid option - enter again");
+                    Console.WriteLine("Error: invalid option - enter again");
                     break;
             }
         }
