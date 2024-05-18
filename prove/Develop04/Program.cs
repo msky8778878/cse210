@@ -6,9 +6,9 @@ class Program
     {
         int option = 0;
 
-        BreathingActivity ba1 = new BreathingActivity();
-        ReflectingActivity ra1 = new ReflectingActivity();
-        ListingActivity la1 = new ListingActivity();
+        BreathingActivity breathingActivity = new BreathingActivity();
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
+        ListingActivity listingActivity = new ListingActivity();
 
         while (option != 4)
         {
@@ -24,13 +24,13 @@ class Program
             switch (option)
             {
                 case 1:
-                    ba1.Run();
+                    breathingActivity.Run();
                     break;
                 case 2:
-                    ra1.Run();
+                    reflectingActivity.Run();
                     break;
                 case 3:
-                    la1.Run();
+                    listingActivity.Run();
                     break;
                 case 4:
                     Console.WriteLine("4. Exit");
@@ -44,8 +44,8 @@ class Program
 
         // bonus
         Console.WriteLine("Statistics:");
-        Console.WriteLine($"You performed the {ba1.GetName()} {ba1.GetStartCounter()} times!");
-        Console.WriteLine($"You performed the {ra1.GetName()} {ra1.GetStartCounter()} times!");
-        Console.WriteLine($"You performed the {la1.GetName()} {la1.GetStartCounter()} times!");
+        Console.WriteLine($"You performed the {breathingActivity.GetName()} {breathingActivity.GetStartCounter()} times!");
+        Console.WriteLine($"You performed the {reflectingActivity.GetName()} {reflectingActivity.GetStartCounter()} times!");
+        Console.WriteLine($"You performed the {listingActivity.GetName()} {listingActivity.GetStartCounter()} times!");
     }
 }
