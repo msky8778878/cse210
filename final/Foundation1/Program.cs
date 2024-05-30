@@ -37,6 +37,7 @@ class Program
         {
             Console.WriteLine("----------------");
             video.DisplayInfo();
+            Console.WriteLine($"Number of comments: {video.GetNumberOfComments()}");
             Console.WriteLine();
             video.DisplayComments();
             Console.WriteLine();
